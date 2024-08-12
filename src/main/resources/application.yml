@@ -1,4 +1,5 @@
 spring:
+
   h2:
     console:
       enabled: true
@@ -17,3 +18,9 @@ spring:
         show_sql: true
     hibernate:
       ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      #      data-locations: classpath:logintest.sql
+      schema-locations: classpath:member/schema.sql
+      mode: always

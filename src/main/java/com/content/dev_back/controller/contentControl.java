@@ -1,19 +1,21 @@
 package com.content.dev_back.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class contentControl {
 
-    @GetMapping("/hello")
+    @GetMapping("/test")
     public String getHello(){
         return "first";
     }
 
-    @PostMapping("/post")
+    @PostMapping("/join")
     public String join(){
         return "string";
     }
 }
+
+

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.content.dev_back.services.contentServices;
-import com.content.dev_back.controller.dto.joinRequest;
+import com.content.dev_back.controller.dto.JoinRequest;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,14 +19,18 @@ public class contentControl {
     }
 
     @PostMapping("/join")
-    public String join(@RequestBody joinRequest joinRequest){
+    public String join(@RequestBody JoinRequest joinRequest){
 
-        String id = joinRequest.getId();
-        String name = joinRequest.getName();
-        String phoneNumber = joinRequest.getPhoneNumber();
+//        String id = joinRequest.getId();
+//        String name = joinRequest.getName();
+//        String phoneNumber = joinRequest.getPhoneNumber();
 
-        String result = contentServices.join(id, name, phoneNumber);
-        if (result.equalsIgnoreCase("success")){
+        String result = contentServices.join(joinRequest);
+//        if (result == null) {
+//            return "Check Data";
+//        }else
+        if("success".equalsIgnoreCase(result)){
+            System.out.println("인풋 = " + result);
             return "success";
         }else{
             return "fail";

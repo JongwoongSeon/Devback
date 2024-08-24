@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.content.dev_back.services.contentServices;
 import com.content.dev_back.controller.dto.JoinRequest;
+import com.content.dev_back.controller.dao.LoginDao;
 
 @RequiredArgsConstructor
 @RestController
@@ -21,14 +22,8 @@ public class contentControl {
     @PostMapping("/join")
     public String join(@RequestBody JoinRequest joinRequest){
 
-//        String id = joinRequest.getId();
-//        String name = joinRequest.getName();
-//        String phoneNumber = joinRequest.getPhoneNumber();
-
         String result = contentServices.join(joinRequest);
-//        if (result == null) {
-//            return "Check Data";
-//        }else
+
         if("success".equalsIgnoreCase(result)){
             System.out.println("인풋 = " + result);
             return "success";
@@ -38,4 +33,7 @@ public class contentControl {
     }
 }
 
-
+//    @GetMapping("/login/test")
+//    public String join(@RequestBody LoginDao loginDao){
+//
+//    }

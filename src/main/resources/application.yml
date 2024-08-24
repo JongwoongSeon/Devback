@@ -21,6 +21,6 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
-      #      data-locations: classpath:logintest.sql
+      data-locations: classpath:logintest.sql
       schema-locations: classpath:member/schema.sql
       mode: always
